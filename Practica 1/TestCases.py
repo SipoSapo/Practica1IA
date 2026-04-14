@@ -12,7 +12,6 @@ def create_path_with_cost_g(list_nodes, cost_g):
     path.g = cost_g
     return path
 
-
 def print_paths(new_paths, list_of_path_removed):
     print('\nNew expanded paths:')
     print_list_of_path_with_cost(new_paths)

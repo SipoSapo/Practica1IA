@@ -148,6 +148,7 @@ def uniform_cost_search(origin_id, destination_id, map, type_preference=0):
 
     return None
 
+
 def calculate_heuristics(expand_paths, map, destination_id, type_preference=0):
     for path in expand_paths:
 

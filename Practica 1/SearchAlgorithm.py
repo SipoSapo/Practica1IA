@@ -165,15 +165,17 @@ def calculate_heuristics(expand_paths, map, destination_id, type_preference=0):
         # 1 → temps
         elif type_preference == 1:
 
-            dist = euclidean_dist(
-                (map.stations[curr]['x'], map.stations[curr]['y']),
-                (map.stations[destination_id]['x'], map.stations[destination_id]['y'])
-            )
+            # Si el destí és -1 (destí final caminant)
+            if destination_id == -1 or curr == -1:
+                h = 0
+            else:
+                dist = euclidean_dist(
+                    (map.stations[curr]['x'], map.stations[curr]['y']),
+                    (map.stations[destination_id]['x'], map.stations[destination_id]['y'])
+                )
 
-            max_vel = max(map.velocity.values())
-            h = dist / max_vel
-
-        # 2 → distància
+                max_vel = max(map.velocity.values())
+                h = dist / max_vel
         elif type_preference == 2:
             h = euclidean_dist(
                 (map.stations[curr]['x'], map.stations[curr]['y']),
